@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/catalog"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_search_category_default"
+        android:title="Catalog" />
+    <item
+        android:id="@+id/signin"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_lock_lock"
+        android:title="Sign in" />
+</menu>
