@@ -1,5 +1,6 @@
 package com.example.sweetrock
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,9 +13,15 @@ class RecyclerAdapter(val chpsList: ArrayList<Items>) :
     RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v: View = LayoutInflater.from(parent.context)
-            .inflate(R.layout.card_layout, parent, false)
-        return ViewHolder(v)
+        try {
+            val v: View = LayoutInflater.from(parent.context)
+                .inflate(R.layout.card_layout, parent, false)
+            return ViewHolder(v)
+        }
+        catch (e:Exception) {
+            Log.e("RecyclerAdapter",e.stackTraceToString())
+            throw e
+        }
     }
 
     override fun onBindViewHolder(holder: RecyclerAdapter.ViewHolder, position: Int) {
