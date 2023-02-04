@@ -5,6 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.sweetrock.databinding.FragmentCatalogBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,21 +23,34 @@ class Catalog : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var _binding: FragmentCatalogBinding? = null
+    private val binding get() = _binding!!
+    private val chpsList = ArrayList<Items>()
+    private lateinit var adapter: RecyclerAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_catalog, container, false)
+        _binding = FragmentCatalogBinding.inflate(inflater, container, false)
+        val view = binding.root
+        var recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
+        val layoutManager = GridLayoutManager(activity,2)
+        recyclerView.layoutManager = layoutManager
+        chpsList.add(Items("Chapter One", "Introduction to Android App Development", R.drawable.ic_launcher_foreground))
+        chpsList.add(Items("Chapter Two", "Android Layouts, Views and View Groups", R.drawable.ic_launcher_foreground))
+        chpsList.add(Items("Chapter Three", "Android App Building and Event Handling", R.drawable.ic_launcher_foreground))
+        chpsList.add(Items("Chapter Four", "Android Action Bars; Scrollable and Tabbed Layouts", R.drawable.ic_launcher_foreground))
+        chpsList.add(Items("Chapter Five", "Elements of UX in App Design", R.drawable.ic_launcher_foreground))
+        chpsList.add(Items("Chapter Six", "Intents on Fragments and Activities; Navigation", R.drawable.ic_launcher_foreground))
+        chpsList.add(Items("Chapter Seven", "Advanced Internal System Components and APIs", R.drawable.ic_launcher_foreground))
+        chpsList.add(Items("Chapter Eight", "PiP Transitions and Animations", R.drawable.ic_launcher_foreground))
+        adapter = RecyclerAdapter(chpsList)
+        recyclerView.adapter = adapter
+        return view
     }
 
     companion object {

@@ -9,4 +9,14 @@
         android:enabled="true"
         android:icon="@android:drawable/ic_lock_lock"
         android:title="Sign in" />
+    <item
+        android:id="@+id/review"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_lock_lock"
+        android:title="Reviews"/>
+    <item
+        android:id="@+id/about"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_lock_lock"
+        android:title="About"/>
 </menu>
