@@ -1,7 +1,7 @@
 package com.example.sweetrock
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -12,10 +12,10 @@ class MainActivity : AppCompatActivity() {
         val catalogFragment = Catalog()
         setCurrentFragment(catalogFragment)
         findViewById<BottomNavigationView>(R.id.bottom_navigation).setOnNavigationItemSelectedListener {
-            when(it.itemId){
-                R.id.catalog->setCurrentFragment(catalogFragment)
-
-
+            when (it.itemId) {
+                R.id.catalog -> setCurrentFragment(catalogFragment)
+                R.id.signin -> setCurrentFragment(SignIn())
+                R.id.review -> setCurrentFragment(Review())
             }
             true
         }
