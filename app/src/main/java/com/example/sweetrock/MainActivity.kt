@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.catalog -> setCurrentFragment(catalogFragment)
                 R.id.signin -> setCurrentFragment(SignIn())
                 R.id.review -> setCurrentFragment(Review())
+                R.id.about -> setCurrentFragment(About())
             }
             true
         }

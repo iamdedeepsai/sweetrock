@@ -19,6 +19,11 @@ class SignIn : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentSignInBinding.inflate(inflater, container, false)
+        return _binding!!.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         _binding?.signupBtn?.setOnClickListener { view ->
             val builder = AlertDialog.Builder(context)
 
@@ -56,8 +61,6 @@ class SignIn : Fragment() {
             // Show the Alert Dialog box
             alertDialog.show()
         }
-
-        return inflater.inflate(R.layout.fragment_sign_in, container, false)
     }
 
 }
