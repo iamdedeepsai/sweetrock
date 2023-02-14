@@ -2,21 +2,21 @@
     <item
         android:id="@+id/catalog"
         android:enabled="true"
-        android:icon="@android:drawable/ic_search_category_default"
+        android:icon="@drawable/outline_saved_search_24"
         android:title="Catalog" />
     <item
         android:id="@+id/signin"
         android:enabled="true"
-        android:icon="@android:drawable/ic_lock_lock"
+        android:icon="@drawable/outline_lock_24"
         android:title="Sign in" />
     <item
         android:id="@+id/review"
         android:enabled="true"
-        android:icon="@android:drawable/ic_lock_lock"
+        android:icon="@drawable/outline_reviews_24"
         android:title="Reviews"/>
     <item
         android:id="@+id/about"
         android:enabled="true"
-        android:icon="@android:drawable/ic_lock_lock"
+        android:icon="@drawable/outline_info_24"
         android:title="About"/>
 </menu>
