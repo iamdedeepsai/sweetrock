@@ -45,7 +45,7 @@ class Catalog : Fragment() {
         chpsList.add(Items("Chapter Six", "Intents on Fragments and Activities; Navigation", R.drawable.ic_launcher_foreground))
         chpsList.add(Items("Chapter Seven", "Advanced Internal System Components and APIs", R.drawable.ic_launcher_foreground))
         chpsList.add(Items("Chapter Eight", "PiP Transitions and Animations", R.drawable.ic_launcher_foreground))
-        adapter = RecyclerAdapter(chpsList)
+        adapter = context?.let { RecyclerAdapter(chpsList, it) }!!
         recyclerView.adapter = adapter
         return view
     }
