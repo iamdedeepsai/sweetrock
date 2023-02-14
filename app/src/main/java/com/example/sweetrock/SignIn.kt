@@ -41,8 +41,31 @@ class SignIn : Fragment() {
                 // When the user click yes button then app will close
                     dialog, which ->
                 run {
-                    Toast.makeText(context, "You have signed up!", Toast.LENGTH_SHORT).show()
-                    dialog.cancel()
+                    if(//TODO: IMPLEMENT REGEX MATCHING
+                    true)
+                    {
+                        Toast.makeText(context, "You have signed up!", Toast.LENGTH_SHORT).show()
+                        dialog.cancel()
+                    }
+                    else{
+                        val builderError = AlertDialog.Builder(context)
+
+                        // Set the message show for the Alert time
+                        builderError.setMessage(getString(R.string.error_body))
+
+                        // Set Alert Title
+                        builderError.setTitle("Alert !")
+
+                        // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                        builderError.setCancelable(false)
+
+                        // Set the positive button with yes name Lambda OnClickListener method is use of DialogInterface interface.
+                        builderError.setPositiveButton("Sign up!"){
+                            dialog,which -> run{dialog.cancel()}
+                        }
+                        builderError.create().show()
+                    }
+
                 }
             }
 

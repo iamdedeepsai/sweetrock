@@ -96,4 +96,12 @@
     <string name ="about_body">Tired of waiting for waiters? No worries! Order from the Sweet Rock app and your food will come in no time. Enjoy!</string>
     <string name="contact_title">Contact</string>
     <string name="contact_body">HP: +65 9012 3456\nEmail: contact@sweetrock.com</string>
+
+    <string name="rating_prompt">Rate this app!</string>
+    <string name="review_prompt">Enter review</string>
+    <string name="review_button">Send</string>
+
+    <string name="review_title">Customer Reviews</string>
+
+    <string name ="error_body">Usernames can only be 6 to 30 characters long, and only contain letters and numbers\n\nPasswords must be at least 12 characters long and contain at least one upper case letter, one lower case letter and one numerical character</string>
 </resources>
