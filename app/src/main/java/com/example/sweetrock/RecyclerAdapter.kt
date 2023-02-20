@@ -14,6 +14,21 @@ import com.google.android.material.snackbar.Snackbar
 class RecyclerAdapter(val chpsList: ArrayList<Items>, private val context: Context) :
     RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     val cont = context
+    val arr = arrayOf(
+        R.drawable.caramel_latte,
+        R.drawable.iced_coffee,
+        R.drawable.matcha_latte,
+        R.drawable.hot_chocolate,
+        R.drawable.mocha_frappuccino,
+        R.drawable.cappuccino,
+        R.drawable.americano,
+        R.drawable.chai_latte,
+        R.drawable.white_chocolate_mocha,
+        R.drawable.cold_brew,
+        R.drawable.espresso,
+        R.drawable.fruit_smoothie,
+        R.drawable.green_juice
+    )
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         try {
             val v: View = LayoutInflater.from(parent.context)
@@ -36,6 +51,23 @@ class RecyclerAdapter(val chpsList: ArrayList<Items>, private val context: Conte
         var itemImage: ImageView
         var itemTitle: TextView
         var itemDetails: TextView
+        private val arr = arrayOf(
+            R.drawable.caramel_latte,
+            R.drawable.iced_coffee,
+            R.drawable.matcha_latte,
+            R.drawable.hot_chocolate,
+            R.drawable.mocha_frappuccino,
+            R.drawable.cappuccino,
+            R.drawable.americano,
+            R.drawable.chai_latte,
+            R.drawable.white_chocolate_mocha,
+            R.drawable.cold_brew,
+            R.drawable.espresso,
+            R.drawable.fruit_smoothie,
+            R.drawable.green_juice
+        )
+        private val intArr =
+            arrayOf(4.99, 2.99, 3.99, 4.49, 5.49, 3.99, 2.99, 4.49, 4.99, 3.49, 2.49, 4.99, 5.49)
         lateinit var cont: Context
 
         init {
@@ -46,7 +78,11 @@ class RecyclerAdapter(val chpsList: ArrayList<Items>, private val context: Conte
             itemView.setOnClickListener { view ->
                 val pos = adapterPosition + 1
                 val nerd: Intent = Intent(itemView.context, CardActivity::class.java)
-                nerd.putExtra("name", "Biggus nerdus")
+                nerd.putExtra("name", itemTitle.text)
+                nerd.putExtra("details", itemDetails.text)
+                nerd.putExtra("image", arr[pos - 1])
+                nerd.putExtra("price", "" + intArr[pos - 1])
+
                 itemView.context.startActivity(nerd)
                 Snackbar.make(view, "Click detected on item $pos", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()

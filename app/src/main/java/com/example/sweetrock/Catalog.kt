@@ -25,7 +25,86 @@ class Catalog : Fragment() {
     private val chpsList = ArrayList<Items>()
     private lateinit var adapter: RecyclerAdapter
 
-
+    val menu = arrayOf(
+        mapOf(
+            "name" to "Caramel Latte",
+            "description" to "Espresso with steamed milk, caramel sauce, and whipped cream.",
+            "price" to 4.99,
+            "image" to R.drawable.caramel_latte
+        ),
+        mapOf(
+            "name" to "Iced Coffee",
+            "description" to "Chilled coffee with your choice of milk and sweetener.",
+            "price" to 2.99,
+            "image" to R.drawable.iced_coffee
+        ),
+        mapOf(
+            "name" to "Matcha Latte",
+            "description" to "Green tea powder with steamed milk and honey.",
+            "price" to 3.99,
+            "image" to R.drawable.matcha_latte
+        ),
+        mapOf(
+            "name" to "Hot Chocolate",
+            "description" to "Rich chocolate with steamed milk and whipped cream.",
+            "price" to 4.49,
+            "image" to R.drawable.hot_chocolate
+        ),
+        mapOf(
+            "name" to "Mocha Frappuccino",
+            "description" to "Blended coffee with chocolate syrup and whipped cream.",
+            "price" to 5.49,
+            "image" to R.drawable.mocha_frappuccino
+        ),
+        mapOf(
+            "name" to "Cappuccino",
+            "description" to "Espresso with equal parts steamed milk and frothed milk.",
+            "price" to 3.99,
+            "image" to R.drawable.cappuccino
+        ),
+        mapOf(
+            "name" to "Americano",
+            "description" to "Espresso shots with hot water, similar to drip coffee.",
+            "price" to 2.99,
+            "image" to R.drawable.americano
+        ),
+        mapOf(
+            "name" to "Chai Latte",
+            "description" to "Black tea with steamed milk, cinnamon, and other spices.",
+            "price" to 4.49,
+            "image" to R.drawable.chai_latte
+        ),
+        mapOf(
+            "name" to "White Chocolate Mocha",
+            "description" to "Espresso with white chocolate sauce and steamed milk.",
+            "price" to 4.99,
+            "image" to R.drawable.white_chocolate_mocha
+        ),
+        mapOf(
+            "name" to "Cold Brew",
+            "description" to "Slow-steeped coffee with a smooth, rich flavor.",
+            "price" to 3.49,
+            "image" to R.drawable.cold_brew
+        ),
+        mapOf(
+            "name" to "Espresso",
+            "description" to "A concentrated shot of coffee, perfect for a quick caffeine boost.",
+            "price" to 2.49,
+            "image" to R.drawable.espresso
+        ),
+        mapOf(
+            "name" to "Fruit Smoothie",
+            "description" to "A delicious blend of fresh fruit, yogurt, and ice.",
+            "price" to 4.99,
+            "image" to R.drawable.fruit_smoothie
+        ),
+        mapOf(
+            "name" to "Green Juice",
+            "description" to "A refreshing and healthy drink made with kale, spinach, and other greens.",
+            "price" to 5.49,
+            "image" to R.drawable.green_juice
+        )
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,16 +114,19 @@ class Catalog : Fragment() {
         _binding = FragmentCatalogBinding.inflate(inflater, container, false)
         val view = binding.root
         var recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
-        val layoutManager = GridLayoutManager(activity,2)
+        val layoutManager = GridLayoutManager(activity, 2)
         recyclerView.layoutManager = layoutManager
-        chpsList.add(Items("Chapter One", "Introduction to Android App Development", R.drawable.ic_launcher_foreground))
-        chpsList.add(Items("Chapter Two", "Android Layouts, Views and View Groups", R.drawable.ic_launcher_foreground))
-        chpsList.add(Items("Chapter Three", "Android App Building and Event Handling", R.drawable.ic_launcher_foreground))
-        chpsList.add(Items("Chapter Four", "Android Action Bars; Scrollable and Tabbed Layouts", R.drawable.ic_launcher_foreground))
-        chpsList.add(Items("Chapter Five", "Elements of UX in App Design", R.drawable.ic_launcher_foreground))
-        chpsList.add(Items("Chapter Six", "Intents on Fragments and Activities; Navigation", R.drawable.ic_launcher_foreground))
-        chpsList.add(Items("Chapter Seven", "Advanced Internal System Components and APIs", R.drawable.ic_launcher_foreground))
-        chpsList.add(Items("Chapter Eight", "PiP Transitions and Animations", R.drawable.ic_launcher_foreground))
+
+        for (i in menu.indices) {
+            chpsList.add(
+                Items(
+                    menu[i]["name"] as String,
+                    menu[i]["description"] as String,
+                    menu[i]["image"] as Int
+                )
+            )
+        }
+
         adapter = context?.let { RecyclerAdapter(chpsList, it) }!!
         recyclerView.adapter = adapter
         return view
