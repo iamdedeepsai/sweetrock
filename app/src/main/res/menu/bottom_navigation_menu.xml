@@ -14,9 +14,4 @@
         android:enabled="true"
         android:icon="@drawable/outline_reviews_24"
         android:title="Reviews"/>
-    <item
-        android:id="@+id/about"
-        android:enabled="true"
-        android:icon="@drawable/outline_info_24"
-        android:title="About"/>
 </menu>

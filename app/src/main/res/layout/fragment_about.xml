@@ -9,7 +9,7 @@
         android:id="@+id/textView8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:gravity="center"
         android:text="@string/about_title"
         android:textSize="48sp" />
@@ -39,5 +39,6 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/contact_body"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:layout_marginBottom="30dp"/>
 </LinearLayout>

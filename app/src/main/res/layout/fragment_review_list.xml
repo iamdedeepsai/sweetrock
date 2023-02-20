@@ -18,23 +18,26 @@
         android:text="@string/review_title"
         android:textSize="30sp" />
 
-    <ListView
-        android:id="@+id/dynamic"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="10dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="1dp" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart = "320dp"
-        android:layout_marginBottom="64dp"
-        android:clickable="true"
-        android:contentDescription="Review btn"
-        app:elevation="10dp"
-        app:srcCompat="@drawable/outline_reviews_24" />
+        android:layout_height="wrap_content">
+        <ListView
+            android:id="@+id/dynamic"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="1dp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="525dp"
+            android:layout_marginStart = "300dp"
+            android:clickable="true"
+            android:contentDescription="Review btn"
+            app:elevation="10dp"
+            app:srcCompat="@drawable/outline_reviews_24" />
+    </RelativeLayout>
+
 </LinearLayout>
