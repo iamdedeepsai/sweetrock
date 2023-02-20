@@ -1,5 +1,7 @@
 package com.example.sweetrock
 
+import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -9,17 +11,16 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 
-class RecyclerAdapter(val chpsList: ArrayList<Items>) :
+class RecyclerAdapter(val chpsList: ArrayList<Items>, private val context: Context) :
     RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
-
+    val cont = context
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         try {
             val v: View = LayoutInflater.from(parent.context)
                 .inflate(R.layout.card_layout, parent, false)
             return ViewHolder(v)
-        }
-        catch (e:Exception) {
-            Log.e("RecyclerAdapter",e.stackTraceToString())
+        } catch (e: Exception) {
+            Log.e("RecyclerAdapter", e.stackTraceToString())
             throw e
         }
     }
@@ -35,6 +36,7 @@ class RecyclerAdapter(val chpsList: ArrayList<Items>) :
         var itemImage: ImageView
         var itemTitle: TextView
         var itemDetails: TextView
+        lateinit var cont: Context
 
         init {
             itemImage = itemView.findViewById(R.id.item_image)
@@ -43,6 +45,9 @@ class RecyclerAdapter(val chpsList: ArrayList<Items>) :
 
             itemView.setOnClickListener { view ->
                 val pos = adapterPosition + 1
+                val nerd: Intent = Intent(itemView.context, CardActivity::class.java)
+                nerd.putExtra("name", "Biggus nerdus")
+                itemView.context.startActivity(nerd)
                 Snackbar.make(view, "Click detected on item $pos", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
             }
