@@ -2,6 +2,7 @@ package com.example.sweetrock
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -32,6 +33,11 @@ class CardActivity : AppCompatActivity() {
 
         findViewById<AppCompatImageButton>(R.id.minusBtn).setOnClickListener {
             count.text = (count.text.toString().toInt() - 1).toString()
+        }
+
+        findViewById<Button>(R.id.add2Cart).setOnClickListener {
+
+            finish()
         }
     }
 

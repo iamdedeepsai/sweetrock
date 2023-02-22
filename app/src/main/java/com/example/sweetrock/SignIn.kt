@@ -54,7 +54,7 @@ class SignIn : Fragment() {
                         builderError.setMessage(getString(R.string.error_body))
 
                         // Set Alert Title
-                        builderError.setTitle("Alert !")
+                        builderError.setTitle("Sign up?")
 
                         // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
                         builderError.setCancelable(false)

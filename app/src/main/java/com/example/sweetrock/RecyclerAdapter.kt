@@ -84,7 +84,7 @@ class RecyclerAdapter(val chpsList: ArrayList<Items>, private val context: Conte
                 nerd.putExtra("price", "" + intArr[pos - 1])
 
                 itemView.context.startActivity(nerd)
-                Snackbar.make(view, "Click detected on item $pos", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "${itemTitle.text} was added to cart", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
             }
         }
