@@ -30,7 +30,7 @@ class SignIn : Fragment() {
 
             val regexText = Regex("^[a-zA-Z0-9_-]{3,12}\$")
             val regexPassword =
-                Regex("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!_.])(?=\\S+\$).{8,}\$")
+                Regex("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+\$).{8,}\$")
 
 
             if (username.matches(regexText) && password.matches(regexPassword) && username != "" && password != "") {
