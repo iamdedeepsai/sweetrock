@@ -84,8 +84,8 @@
 
     <TextView
         android:id="@+id/nameText"
-        android:layout_width="276dp"
-        android:layout_height="36dp"
+        android:layout_width="273dp"
+        android:layout_height="72dp"
         android:layout_marginStart="16dp"
         android:text="name"
         android:textSize="26sp"
@@ -103,5 +103,15 @@
         android:text="Add to cart"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/backBtn"
+        android:layout_width="89dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

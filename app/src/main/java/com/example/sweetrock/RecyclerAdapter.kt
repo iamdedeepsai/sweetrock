@@ -68,6 +68,22 @@ class RecyclerAdapter(val chpsList: ArrayList<Items>, private val context: Conte
         )
         private val intArr =
             arrayOf(4.99, 2.99, 3.99, 4.49, 5.49, 3.99, 2.99, 4.49, 4.99, 3.49, 2.49, 4.99, 5.49)
+
+        private val strArr = arrayOf(
+            "Hot",
+            "Cold",
+            "Hot",
+            "Hot",
+            "Hot",
+            "Hot",
+            "Hot",
+            "Hot",
+            "Hot",
+            "Cold",
+            "Hot",
+            "Cold",
+            "Cold"
+        )
         lateinit var cont: Context
 
         init {
@@ -79,6 +95,7 @@ class RecyclerAdapter(val chpsList: ArrayList<Items>, private val context: Conte
                 val pos = adapterPosition + 1
                 val nerd: Intent = Intent(itemView.context, CardActivity::class.java)
                 nerd.putExtra("name", itemTitle.text)
+                nerd.putExtra("category", strArr[pos - 1])
                 nerd.putExtra("details", itemDetails.text)
                 nerd.putExtra("image", arr[pos - 1])
                 nerd.putExtra("price", "" + intArr[pos - 1])

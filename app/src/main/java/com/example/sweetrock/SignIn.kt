@@ -25,64 +25,37 @@ class SignIn : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding?.signupBtn?.setOnClickListener { view ->
-            val builder = AlertDialog.Builder(context)
+            val username = binding.editTextTextPersonName.editText?.text.toString()
+            val password = binding.editTextTextPassword.editText?.text.toString()
 
-            // Set the message show for the Alert time
-            builder.setMessage("Do you want to exit ?")
+            val regexText = Regex("^[a-zA-Z0-9_-]{3,12}\$")
+            val regexPassword =
+                Regex("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!_.])(?=\\S+\$).{8,}\$")
 
-            // Set Alert Title
-            builder.setTitle("Alert !")
 
-            // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
-            builder.setCancelable(false)
+            if (username.matches(regexText) && password.matches(regexPassword) && username != "" && password != "") {
+                Toast.makeText(context, "You have signed up!", Toast.LENGTH_SHORT).show()
+                _binding?.signupBtn?.text = "Signed in as $username"
+                _binding?.editTextTextPersonName?.editText?.isEnabled = false
+                _binding?.editTextTextPassword?.editText?.isEnabled = false
+            } else {
+                val builderError = AlertDialog.Builder(context)
 
-            // Set the positive button with yes name Lambda OnClickListener method is use of DialogInterface interface.
-            builder.setPositiveButton("Sign up!") {
-                // When the user click yes button then app will close
-                    dialog, which ->
-                run {
-                    if(//TODO: IMPLEMENT REGEX MATCHING
-                    true)
-                    {
-                        Toast.makeText(context, "You have signed up!", Toast.LENGTH_SHORT).show()
-                        dialog.cancel()
-                    }
-                    else{
-                        val builderError = AlertDialog.Builder(context)
+                // Set the message show for the Alert time
+                builderError.setMessage(getString(R.string.error_body))
 
-                        // Set the message show for the Alert time
-                        builderError.setMessage(getString(R.string.error_body))
+                // Set Alert Title
+                builderError.setTitle("Error!")
 
-                        // Set Alert Title
-                        builderError.setTitle("Sign up?")
+                // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                builderError.setCancelable(false)
 
-                        // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
-                        builderError.setCancelable(false)
-
-                        // Set the positive button with yes name Lambda OnClickListener method is use of DialogInterface interface.
-                        builderError.setPositiveButton("Sign up!"){
-                            dialog,which -> run{dialog.cancel()}
-                        }
-                        builderError.create().show()
-                    }
-
+                // Set the positive button with yes name Lambda OnClickListener method is use of DialogInterface interface.
+                builderError.setPositiveButton("Okay") { dialog, which ->
+                    run { dialog.cancel() }
                 }
+                builderError.create().show()
             }
-
-            // Set the Negative button with No name Lambda OnClickListener method is use of DialogInterface interface.
-            builder.setNegativeButton("Cancel") {
-                // If user click no then dialog box is canceled.
-                    dialog, which ->
-                run {
-                    Toast.makeText(context, "Cancelled sign up", Toast.LENGTH_SHORT).show()
-                    dialog.cancel()
-                }
-            }
-
-            // Create the Alert dialog
-            val alertDialog = builder.create()
-            // Show the Alert Dialog box
-            alertDialog.show()
         }
     }
 

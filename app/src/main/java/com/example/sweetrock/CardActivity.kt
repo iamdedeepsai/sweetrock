@@ -15,12 +15,14 @@ class CardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val str: String? = intent.getStringExtra("name")
         val details: String? = intent.getStringExtra("details")
+        val category: String? = intent.getStringExtra("category")
         setContentView(R.layout.activity_card)
+
         val textView: TextView = findViewById(R.id.details)
         val nameTextView: TextView = findViewById(R.id.nameText)
         val textView2: TextView = findViewById(R.id.costTag)
         val cardPhoto: ImageView = findViewById(R.id.cardPhoto)
-        nameTextView.text = str
+        nameTextView.text = str + " ($category)"
         textView.text = details
         textView2.text = intent.getStringExtra("price")
         cardPhoto.setImageResource(intent.getIntExtra("image", 0))
@@ -32,11 +34,14 @@ class CardActivity : AppCompatActivity() {
         }
 
         findViewById<AppCompatImageButton>(R.id.minusBtn).setOnClickListener {
-            count.text = (count.text.toString().toInt() - 1).toString()
+            if (count.text != "0") count.text = (count.text.toString().toInt() - 1).toString()
         }
 
         findViewById<Button>(R.id.add2Cart).setOnClickListener {
+            finish()
+        }
 
+        findViewById<Button>(R.id.backBtn).setOnClickListener {
             finish()
         }
     }

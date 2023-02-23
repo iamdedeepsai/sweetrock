@@ -8,7 +8,7 @@
         android:id="@+id/signin"
         android:enabled="true"
         android:icon="@drawable/outline_lock_24"
-        android:title="Sign in" />
+        android:title="Sign up" />
     <item
         android:id="@+id/review"
         android:enabled="true"
